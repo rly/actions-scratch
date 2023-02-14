@@ -4,7 +4,7 @@ on:
 
 jobs:
   run-test:
-    name: conda-linux-python3.7-minimum
+    name: test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -17,10 +17,11 @@ jobs:
           # auto-activate-base: true
           # activate-environment: true
           python-version: "3.7"
+          channels: conda-forge
 
       - name: Conda install
         run: |
           conda config --set always_yes yes --set changeps1 no
           conda info
-          conda install -c conda-forge "importlib_metadata<4"
+          conda install "importlib-metadata<4"
           conda list
