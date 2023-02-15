@@ -1,4 +1,4 @@
-name: Test conda py37 with importlib_metadata
+name: Test conda py37 with tox
 on:
   pull_request:
 
@@ -21,7 +21,7 @@ jobs:
           python-version: "3.7"
           channels: conda-forge
 
-      - name: Conda install
+      - name: Conda install tox
         run: |
           conda config --set always_yes yes --set changeps1 no
           conda info
