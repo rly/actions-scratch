@@ -24,7 +24,7 @@ jobs:
 
       - name: Conda install tox
         run: |
-          mamba config --set always_yes yes --set changeps1 no
+          conda config --set always_yes yes --set changeps1 no
           mamba info
           mamba search tox
           mamba search tox --info
