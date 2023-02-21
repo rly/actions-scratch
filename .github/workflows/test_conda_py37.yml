@@ -18,17 +18,18 @@ jobs:
           # auto-update-conda: true
           # auto-activate-base: true
           # activate-environment: true
+          mamba-version: "*"
           python-version: "3.7"
           channels: conda-forge
 
       - name: Conda install tox
         run: |
-          conda config --set always_yes yes --set changeps1 no
-          conda info
-          conda search tox
-          conda search tox --info
-          conda install "tox>=4"
-          conda list
+          mamba config --set always_yes yes --set changeps1 no
+          mamba info
+          mamba search tox
+          mamba search tox --info
+          mamba install "tox>=4"
+          mamba list
           
       #- name: Pip install tox
       #  run: |
