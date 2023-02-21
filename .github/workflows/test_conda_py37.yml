@@ -21,12 +21,16 @@ jobs:
           python-version: "3.7"
           channels: conda-forge
 
-      - name: Conda install tox
+      #- name: Conda install tox
+      #  run: |
+      #    conda config --set always_yes yes --set changeps1 no
+      #    conda info
+      #    conda install tox
+      #    conda list
+          
+      - name: Pip install tox
         run: |
-          conda config --set always_yes yes --set changeps1 no
-          conda info
-          conda install tox
-          conda list
+          pip install tox
 
       - name: Run tox
         run: |
