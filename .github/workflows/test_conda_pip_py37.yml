@@ -1,4 +1,4 @@
-name: Test conda py37 with tox
+name: Test tox from pip in conda py37
 on:
   pull_request:
 
