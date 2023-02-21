@@ -1,0 +1,37 @@
+name: Test tox from conda-forge in conda py37
+on:
+  pull_request:
+
+jobs:
+  run-test:
+    name: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          # auto-update-conda: true
+          # auto-activate-base: true
+          # activate-environment: true
+          python-version: "3.7"
+          channels: conda-forge
+
+      - name: Conda install tox
+        run: |
+          conda config --set always_yes yes --set changeps1 no
+          conda info
+          conda install tox "importlib-metadata<4"
+          conda list
+          
+      #- name: Pip install tox
+      #  run: |
+      #    pip install tox
+
+      - name: Run tox
+        run: |
+          tox -e test
