@@ -1,4 +1,4 @@
-name: Test tox from conda-forge in conda py37
+name: Test tox and importlib-metadata>=4 from conda-forge in conda py37
 on:
   pull_request:
 
