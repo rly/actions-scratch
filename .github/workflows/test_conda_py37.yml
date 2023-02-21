@@ -28,7 +28,7 @@ jobs:
           mamba info
           mamba search tox
           mamba search tox --info
-          mamba install "tox>=4"
+          mamba install tox
           mamba list
           
       #- name: Pip install tox
