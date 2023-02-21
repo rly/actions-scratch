@@ -25,9 +25,10 @@ jobs:
         run: |
           conda config --set always_yes yes --set changeps1 no
           conda info
-          conda install tox
-          conda list
+          conda search tox
           conda search tox --info
+          conda install "tox>=4"
+          conda list
           
       #- name: Pip install tox
       #  run: |
