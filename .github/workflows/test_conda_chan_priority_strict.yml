@@ -1,4 +1,4 @@
-name: Test importlib_metadata cp false from conda-forge in conda py37
+name: Test importlib_metadata cp strict from conda-forge in conda py37
 on:
   pull_request:
 
@@ -19,7 +19,7 @@ jobs:
           # activate-environment: true
           python-version: "3.7"
           channels: conda-forge
-          channel-priority: false
+          channel-priority: strict
 
       - name: Conda install importlib_metadata
         run: |
