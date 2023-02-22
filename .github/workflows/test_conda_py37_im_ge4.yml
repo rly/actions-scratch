@@ -16,7 +16,6 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           # auto-update-conda: true
-          # auto-activate-base: true
           # activate-environment: true
           python-version: "3.7"
           channels: conda-forge
@@ -27,7 +26,7 @@ jobs:
           conda info
           conda install tox "importlib-metadata>=4"
           conda list
-          
+
       #- name: Pip install tox
       #  run: |
       #    pip install tox
