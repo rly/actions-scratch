@@ -28,6 +28,11 @@ jobs:
           conda install tox
           conda list
           
+      - name: Report conda dependency tree
+        run: |
+          conda install conda-tree
+          conda-tree deptree --full
+          
       #- name: Pip install tox
       #  run: |
       #    pip install tox
