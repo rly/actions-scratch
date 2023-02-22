@@ -1,4 +1,4 @@
-name: Test tox from conda-forge in mamba py37
+name: Test tox from conda-forge in conda py37
 on:
   pull_request:
 
@@ -15,18 +15,21 @@ jobs:
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          mamba-version: "*"
           python-version: "3.7"
           channels: conda-forge
+          channel-priority: false
 
       - name: Conda install tox
         run: |
           conda config --set always_yes yes --set changeps1 no
-          mamba info
-          mamba search tox
-          mamba search tox --info
-          mamba install tox
-          mamba list
+          conda info
+          conda install tox
+          conda list
+
+      - name: Report conda dependency tree
+        run: |
+          conda install conda-tree
+          conda-tree deptree --full
 
       - name: Run tox
         run: |
