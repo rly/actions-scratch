@@ -20,7 +20,7 @@ jobs:
           # activate-environment: true
           python-version: "3.7"
 
-      - name: Conda install tox
+      - name: Pip install tox
         run: |
           pip install tox
           pip list
