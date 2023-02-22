@@ -15,8 +15,6 @@ jobs:
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          # auto-update-conda: true
-          # activate-environment: true
           python-version: "3.7"
           channels: conda-forge
           channel-priority: false
