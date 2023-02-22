@@ -26,6 +26,7 @@ jobs:
           mamba install importlib_metadata
 
       - name: Mamba reporting
+        run: |
           mamba info
           conda config --show-sources
           mamba list --show-channel-urls

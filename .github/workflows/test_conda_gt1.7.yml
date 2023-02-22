@@ -25,6 +25,7 @@ jobs:
           conda install "importlib_metadata>1.7"
 
       - name: Conda reporting
+        run: |
           conda info
           conda config --show-sources
           conda list --show-channel-urls
