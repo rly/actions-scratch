@@ -24,7 +24,11 @@ jobs:
           conda config --set always_yes yes --set changeps1 no
           mamba info
           mamba install importlib_metadata
-          mamba list
+
+      - name: Mamba reporting
+          mamba info
+          conda config --show-sources
+          mamba list --show-channel-urls
 
       - name: Report conda dependency tree
         run: |

@@ -23,7 +23,11 @@ jobs:
           conda config --set always_yes yes --set changeps1 no
           conda info
           conda install importlib_metadata
-          conda list
+
+      - name: Conda reporting
+          conda info
+          conda config --show-sources
+          conda list --show-channel-urls
 
       - name: Report conda dependency tree
         run: |
