@@ -19,6 +19,7 @@ jobs:
           # activate-environment: true
           python-version: "3.7"
           channels: conda-forge
+          channel_priority: false
 
       - name: Conda install pluggy
         run: |
