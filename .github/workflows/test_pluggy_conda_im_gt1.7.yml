@@ -1,4 +1,4 @@
-name: Test pluggy from conda-forge in conda py37
+name: Test pluggy and importlib_metadata>1.7 from conda-forge in conda py37
 on:
   pull_request:
 
@@ -24,7 +24,7 @@ jobs:
         run: |
           conda config --set always_yes yes --set changeps1 no
           conda info
-          conda install pluggy
+          conda install pluggy "importlib_metadata>1.7"
           conda list
 
       - name: Report conda dependency tree
