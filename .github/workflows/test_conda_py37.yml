@@ -28,6 +28,7 @@ jobs:
       - name: Conda install zipp
         run: |
           conda install zipp
+          conda list --show-channel-urls
 
       - name: Test import zipp
         run: |
