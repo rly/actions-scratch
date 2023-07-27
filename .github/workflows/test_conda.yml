@@ -1,0 +1,35 @@
+name: Test installing and running xx in conda
+on:
+  pull_request:
+
+jobs:
+  run-test:
+    name: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.11"
+          channels: conda-forge
+
+      - name: Conda set up and reporting
+        run: |
+          conda config --set always_yes yes --set changeps1 no
+          conda info
+          conda config --show-sources
+          conda list --show-channel-urls
+
+      # - name: Conda install zipp
+      #   run: |
+      #     conda install zipp
+      #     conda list --show-channel-urls
+
+      # - name: Test import zipp
+      #   run: |
+      #     python -c "import zipp; print(zipp.__version__)"
