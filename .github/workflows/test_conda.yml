@@ -15,7 +15,7 @@ jobs:
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: "3.11"
+#           python-version: "3.11"
           channels: conda-forge
 
       - name: Conda set up and reporting
@@ -27,7 +27,7 @@ jobs:
 
       - name: Conda install dandischema
         run: |
-          conda install dandi==0.55.1 numpy==1.24.2 pandas==2.0.0 h5py==3.8.0 python==3.11
+          conda install dandi==0.55.1 numpy==1.24.2 pandas==2.0.0 h5py==3.8.0 python==3.11 hdmf==3.8.0 matplotlib==3.7.1 python-dateutil==2.8.2 setuptools
           conda list --show-channel-urls
 
       - name: Test import dandischema
