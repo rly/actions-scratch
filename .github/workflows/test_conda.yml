@@ -25,11 +25,11 @@ jobs:
           conda config --show-sources
           conda list --show-channel-urls
 
-      # - name: Conda install zipp
-      #   run: |
-      #     conda install zipp
-      #     conda list --show-channel-urls
+      - name: Conda install dandischema
+        run: |
+          conda install dandischema
+          conda list --show-channel-urls
 
-      # - name: Test import zipp
-      #   run: |
-      #     python -c "import zipp; print(zipp.__version__)"
+      - name: Test import dandischema
+        run: |
+          python -c "import dandischema; print(dandischema.__version__)"
