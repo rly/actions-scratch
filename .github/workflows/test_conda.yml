@@ -1,11 +1,11 @@
-name: Test installing and running xx in conda
+name: Test installing and running scanimage-tiff-reader on x86 macos on conda
 on:
   pull_request:
 
 jobs:
   run-test:
     name: test
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     defaults:
       run:
         shell: bash -l {0}
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: "3.11"
+          python-version: "3.9"
           channels: conda-forge
 
       - name: Conda set up and reporting
@@ -24,6 +24,11 @@ jobs:
           conda info
           conda config --show-sources
           conda list --show-channel-urls
+
+      - name: Install scanimage-tiff-reader
+        run: |
+          pip install scanimage-tiff-reader
+          python -c "import ScanImageTiffReader; from ScanImageTiffReader import ScanImageTiffReader as reader; print(ScanImageTiffReader.__version__)"
 
       # - name: Conda install zipp
       #   run: |
