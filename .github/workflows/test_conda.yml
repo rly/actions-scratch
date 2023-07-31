@@ -25,10 +25,16 @@ jobs:
           conda config --show-sources
           conda list --show-channel-urls
 
-      - name: Install scanimage-tiff-reader
+#       - name: Install scanimage-tiff-reader
+#         run: |
+#           pip install scanimage-tiff-reader
+#           python -c "import ScanImageTiffReader; from ScanImageTiffReader import ScanImageTiffReader as reader; print(ScanImageTiffReader.__version__)"
+
+      - name: Install suite2p
         run: |
-          pip install scanimage-tiff-reader
-          python -c "import ScanImageTiffReader; from ScanImageTiffReader import ScanImageTiffReader as reader; print(ScanImageTiffReader.__version__)"
+          pip install "suite2p[all] @ git+https://github.com/rly/suite2p.git@update_readme"
+          python -c "import suite2p; print(suite2p.version)"
+
 
       # - name: Conda install zipp
       #   run: |
