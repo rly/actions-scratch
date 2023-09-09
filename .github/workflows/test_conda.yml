@@ -5,7 +5,7 @@ on:
 jobs:
   run-test:
     name: test
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     defaults:
       run:
         shell: bash -l {0}
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: "3.11"
+          python-version: "3.9"
           channels: conda-forge
 
       - name: Conda set up and reporting
@@ -25,11 +25,10 @@ jobs:
           conda config --show-sources
           conda list --show-channel-urls
 
-      # - name: Conda install zipp
-      #   run: |
-      #     conda install zipp
-      #     conda list --show-channel-urls
+      - name: Pip install sonpy
+        run: |
+          pip install sonpy
 
-      # - name: Test import zipp
-      #   run: |
-      #     python -c "import zipp; print(zipp.__version__)"
+      - name: Test import sonpy
+        run: |
+          python -c "import sonpy; print(sonpy.__version__)"
