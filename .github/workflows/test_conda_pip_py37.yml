@@ -1,0 +1,27 @@
+name: Test tox from pip in conda py37
+on:
+  pull_request:
+
+jobs:
+  run-test:
+    name: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.7"
+
+      - name: Pip install tox
+        run: |
+          pip install tox
+          pip list
+
+      - name: Run tox
+        run: |
+          tox -e test
